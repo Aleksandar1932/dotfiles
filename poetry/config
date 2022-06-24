@@ -1,0 +1,6 @@
+cache-dir = "/home/aleksandar/.cache/pypoetry"
+experimental.new-installer = true
+installer.parallel = true
+virtualenvs.create = true
+virtualenvs.in-project = null
+virtualenvs.path = "/home/aleksandar/envs"

@@ -41,6 +41,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -179,6 +180,14 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+
+# Screenshots
+bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
+bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+
+# Bar
 bar { 
     i3bar_command $HOME/.config/polybar/launch.sh 
 }
@@ -198,5 +207,10 @@ client.background       #F8F8F2
 
 bindsym $mod+d exec "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10' -p 'dmenu%'"
 
-exec "setxkbmap -layout us,mk"
-exec "setxkbmap -option 'grp:alt_shift_toggle'"
+exec xrandr --dpi 100
+
+exec --no-startup-id setxkbmap -layout us,mk && setxkbmap -option 'grp:alt_shift_toggle'
+exec thunderbird
+exec discord
+exec /opt/viber/Viber
+
