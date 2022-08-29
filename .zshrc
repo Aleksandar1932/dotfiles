@@ -117,6 +117,9 @@ python3 -m venv ~/envs/"$name"
 alias cpc="xclip -selection clipboard"
 alias c="clear"
 
+function weather(){
+curl wttr.in/$1
+}
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
